@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Marcador Deportivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sección Superior (Jugador 1) -->
+        <div class="section top-section">
+            <!-- Elemento esquina superior izquierda -->
+            <div class="corner-element top-left">
+                <div class="corner-counter-horizontal">
+                    <button class="corner-btn minus-btn" onclick="changeCornerCounter('topLeft', false)">-</button>
+                    <div class="corner-counter" id="topLeftCounter">00</div>
+                    <button class="corner-btn plus-btn" onclick="changeCornerCounter('topLeft', true)">+</button>
+                </div>
+            </div>
+
+            <div class="center-area">
+                <div class="player-info">
+                    <input type="text" class="player-name" id="player1Name" value="JUGADOR 1" maxlength="15">
+                    <div class="main-counter-section-horizontal">
+                        <button class="main-counter-btn minus-btn" onclick="changeMainScore(1, false)">-</button>
+                        <div class="main-counter" id="player1Score">00</div>
+                        <button class="main-counter-btn plus-btn" onclick="changeMainScore(1, true)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elemento esquina superior derecha -->
+            <div class="corner-element top-right">
+                <div class="corner-counter-horizontal">
+                    <button class="corner-btn minus-btn" onclick="changeCornerCounter('topRight', false)">-</button>
+                    <div class="corner-counter" id="topRightCounter">00</div>
+                    <button class="corner-btn plus-btn" onclick="changeCornerCounter('topRight', true)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección Central (Controles e Imágenes) -->
+        <div class="section middle-section">
+            <div class="middle-content">
+                <!-- Imagen Izquierda -->
+                <div class="image-area left-image-area">
+                    <div class="image-selector" id="leftImage" onclick="openImageGallery('leftImage')">
+                        <div class="image-placeholder">
+                            <div class="placeholder-text">BATTLEGROUND</div>
+                            <div class="placeholder-subtext">Click para seleccionar</div>
+                        </div>
+                        <img class="selected-image" style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Controles Centrales -->
+                <div class="controls">
+                    <button class="reset-btn" onclick="resetAll()">RESET</button>
+                    <button class="swap-btn" onclick="swapScores()">↕</button>
+                </div>
+
+                <!-- Imagen Derecha -->
+                <div class="image-area right-image-area">
+                    <div class="image-selector" id="rightImage" onclick="openImageGallery('rightImage')">
+                        <div class="image-placeholder">
+                            <div class="placeholder-text">BATTLEGROUND</div>
+                            <div class="placeholder-subtext">Click para seleccionar</div>
+                        </div>
+                        <img class="selected-image" style="display: none;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección Inferior (Jugador 2 - Rotado 180°) -->
+        <div class="section bottom-section">
+            <!-- Elemento esquina inferior izquierda -->
+            <div class="corner-element bottom-left rotated">
+                <div class="corner-counter-horizontal">
+                    <button class="corner-btn minus-btn" onclick="changeCornerCounter('bottomLeft', false)">-</button>
+                    <div class="corner-counter" id="bottomLeftCounter">00</div>
+                    <button class="corner-btn plus-btn" onclick="changeCornerCounter('bottomLeft', true)">+</button>
+                </div>
+            </div>
+
+            <div class="center-area rotated">
+                <div class="player-info">
+                    <input type="text" class="player-name" id="player2Name" value="JUGADOR 2" maxlength="15">
+                    <div class="main-counter-section-horizontal">
+                        <button class="main-counter-btn minus-btn" onclick="changeMainScore(2, false)">-</button>
+                        <div class="main-counter" id="player2Score">00</div>
+                        <button class="main-counter-btn plus-btn" onclick="changeMainScore(2, true)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elemento esquina inferior derecha -->
+            <div class="corner-element bottom-right rotated">
+                <div class="corner-counter-horizontal">
+                    <button class="corner-btn minus-btn" onclick="changeCornerCounter('bottomRight', false)">-</button>
+                    <div class="corner-counter" id="bottomRightCounter">00</div>
+                    <button class="corner-btn plus-btn" onclick="changeCornerCounter('bottomRight', true)">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Galería de Imágenes -->
+    <div class="modal-overlay" id="imageGalleryModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Seleccionar Battleground</h3>
+                <button class="close-btn" onclick="closeImageGallery()">&times;</button>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Las imágenes se cargarán dinámicamente aquí -->
+            </div>
+            <div class="modal-footer">
+                <button class="upload-btn" onclick="uploadCustomImage()">📁 Subir Imagen</button>
+                <button class="remove-btn" onclick="removeSelectedImage()">🗑️ Quitar Imagen</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
